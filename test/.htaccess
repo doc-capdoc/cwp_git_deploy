@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Exclude the following directory
+#RewriteCond %{REQUEST_URI} !example_dir_name_here [NC]
+
+# For the rest of sites force HTTPS traffic. 
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
